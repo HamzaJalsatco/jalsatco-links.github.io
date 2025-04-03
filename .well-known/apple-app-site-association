@@ -3,7 +3,7 @@
     "apps": [],
     "details": [
       {
-        "appID": "YOUR_TEAM_ID.com.yourcompany.yourgame",
+        "appID": "7LSVKK5V2Z.com.av.jalsatprototype",
         "paths": [ "/invite/*" ]
       }
     ]

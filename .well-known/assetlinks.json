@@ -3,9 +3,9 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.yourcompany.yourgame",
+      "package_name": "com.av.jalsatprototype",
       "sha256_cert_fingerprints": [
-        "YOUR_SHA256_CERT_FINGERPRINT"
+        "D4:2A:2E:B1:93:81:FD:9F:65:74:8D:7E:E7:FC:A4:E7:4B:18:14:D7:EA:FD:06:2C:52:B2:1E:34:20:DF:98:73"
       ]
     }
   }
