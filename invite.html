@@ -14,13 +14,21 @@
       var intentUrl = 'intent://#Intent;package=' + packageName + ';scheme=jawlat;end';
 
       function openAppOrRedirect() {
-        var now = Date.now();
+        var hidden = false;
+        function handleVisibilityChange() {
+          if (document.hidden) {
+            hidden = true;
+          }
+        }
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+
         window.location = intentUrl;
         setTimeout(function() {
-          if (Date.now() - now < 2000) {
+          document.removeEventListener('visibilitychange', handleVisibilityChange);
+          if (!hidden) {
             window.location = playStoreUrl;
           }
-        }, 1500);
+        }, 1800);
       }
 
       window.onload = openAppOrRedirect;
