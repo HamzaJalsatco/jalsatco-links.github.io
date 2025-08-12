@@ -7,13 +7,14 @@
 </head>
 <body>
     <h1>Welcome to Jawlat!</h1>
-    <p>If you have the app installed, it will open automatically. Otherwise, you will be redirected to the Play Store.</p>
+    <p>Click the button below to open the app. If you don't have it installed, you'll be redirected to the Play Store.</p>
+    <button id="openAppBtn" style="font-size:1.2em;padding:0.5em 1.5em;">Open Jawlat App</button>
     <script>
       var packageName = 'com.jalsatco.jawlat';
       var playStoreUrl = 'https://play.google.com/store/apps/details?id=' + packageName;
       var intentUrl = 'intent://#Intent;package=' + packageName + ';scheme=jawlat;end';
 
-      function openAppOrRedirect() {
+      document.getElementById('openAppBtn').addEventListener('click', function() {
         var hidden = false;
         function handleVisibilityChange() {
           if (document.hidden) {
@@ -29,9 +30,7 @@
             window.location = playStoreUrl;
           }
         }, 1800);
-      }
-
-      window.onload = openAppOrRedirect;
+      });
     </script>
 </body>
 </html>
