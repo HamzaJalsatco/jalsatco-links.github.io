@@ -7,29 +7,20 @@
 </head>
 <body>
     <h1>Welcome to Jawlat!</h1>
-    <p>Click the button below to open the app. If you don't have it installed, you'll be redirected to the Play Store.</p>
+    <p>Click the button below to open the app with your invite link.</p>
     <button id="openAppBtn" style="font-size:1.2em;padding:0.5em 1.5em;">Open Jawlat App</button>
     <script>
-      var packageName = 'com.jalsatco.jawlat';
-      var playStoreUrl = 'https://play.google.com/store/apps/details?id=' + packageName;
-      var intentUrl = 'intent://#Intent;package=' + packageName + ';scheme=jawlat;end';
+      // Parse friendCode from URL
+      function getQueryParam(name) {
+        const url = new URL(window.location.href);
+        return url.searchParams.get(name);
+      }
+
+      var friendCode = getQueryParam('friendCode');
+      var urlScheme = 'jawlat://invite?friendCode=' + encodeURIComponent(friendCode || '');
 
       document.getElementById('openAppBtn').addEventListener('click', function() {
-        var hidden = false;
-        function handleVisibilityChange() {
-          if (document.hidden) {
-            hidden = true;
-          }
-        }
-        document.addEventListener('visibilitychange', handleVisibilityChange);
-
-        window.location = intentUrl;
-        setTimeout(function() {
-          document.removeEventListener('visibilitychange', handleVisibilityChange);
-          if (!hidden) {
-            window.location = playStoreUrl;
-          }
-        }, 1800);
+        window.location = urlScheme;
       });
     </script>
 </body>
